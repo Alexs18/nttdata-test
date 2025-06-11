@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
 import { Getallitems } from 'src/data/models/getallitems';
 import { Productofinanciero } from 'src/domain/models/productofinanciero';
 import { Createitem } from 'src/domain/usercases/createitem/createitem';
@@ -19,9 +20,9 @@ export class FormularioComponent implements OnInit {
   fechaActual = currentdate();
   fechaRevision = adddate(this.fechaActual,'year', 1);
   constructor(
-     private readonly _usecasegetallitem:Getitem,
         private readonly fb: FormBuilder,
         private readonly _usecasecreateitem:Createitem,
+        private readonly _route:Router,
   ) {
      this.form = this.fb.group({ 
           id: ['', [Validators.required, Validators.minLength(3)]],
@@ -77,6 +78,7 @@ export class FormularioComponent implements OnInit {
         next: (resp) => {
           if (resp.message === 'Product added successfully') {
             sucessalert('ITEM CREADO EXITOSAMENTE');
+            this._route.navigateByUrl('/productos');
           } else {
             erroralert('No se pudo crear el item');
           }

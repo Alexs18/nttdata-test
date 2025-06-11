@@ -40,6 +40,7 @@
           <button type="button" (click)="onReset()" class="btn btn--secondary">Reiniciar</button>
 
           <button type="submit" class="btn btn--warning" [disabled]="form.invalid">Enviar</button>
+          <button type="submit" class="btn btn--danger" [routerLink]="['/productos']" routerLinkActive="router-link-active"  >Regresar</button>
         </div>
 </form>
 </div>

@@ -87,6 +87,13 @@
             cursor: not-allowed;
           }
         }
+        &--danger {
+          background-color: red;
+
+          &:hover {
+            background-color: rgb(138, 54, 54);
+          }
+        }
       }
     }
   }
