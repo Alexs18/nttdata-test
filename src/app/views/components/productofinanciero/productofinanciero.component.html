@@ -1,34 +1,37 @@
-<div class="tabla-wrapper">
-  <div class="tabla-header">
-    <button class="btn-agregar" (click)="agregar()">Agregar</button>
+<div class="container-main">
+  <div class="input-wrapper">
+    <button class="btn btn--secondary" [routerLink]="['/formulario']" routerLinkActive="router-link-active" >
+      Agregar Producto
+    </button>
   </div>
-
-  <table class="styled-table">
-    <thead>
-      <tr>
-        <th>Logo</th>
-        <th>Nombre del Producto</th>
-        <th>Descripción</th>
-        <th>Fecha de Liberación</th>
-        <th>Fecha de Reestructuración</th>
-        <th>Opciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let producto of productos.data; let i = index">
-        <td><img [src]="producto.logo" alt="logo" class="logo-img" /></td>
-        <td>{{ producto.name }}</td>
-        <td>{{ producto.description }}</td>
-        <td>{{ producto.date_release }}</td>
-        <td>{{ producto.date_revision }}</td>
-        <td class="dropdown" (click)="setMenu(i, $event)">
-          <button class="dropbtn">⋮</button>
-          <ul class="dropdown-content">
-            <li (click)="deleteItem(parser(producto.id))">Editar</li>
-            <li (click)="deleteItem(parser(producto.id))">Eliminar</li>
-          </ul>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="tabla-wrapper">
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Logo</th>
+          <th>Nombre del Producto</th>
+          <th>Descripción</th>
+          <th>Fecha de Liberación</th>
+          <th>Fecha de Reestructuración</th>
+          <th>Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let producto of productos.data; let i = index">
+          <td><img [src]="producto.logo" alt="logo" class="logo-img" /></td>
+          <td>{{ producto.name }}</td>
+          <td>{{ producto.description }}</td>
+          <td>{{ producto.date_release }}</td>
+          <td>{{ producto.date_revision }}</td>
+          <td class="dropdown" (click)="setMenu(i, $event)">
+            <button class="dropbtn">⋮</button>
+            <ul class="dropdown-content">
+              <li (click)="deleteItem(parser(producto.id))">Editar</li>
+              <li (click)="deleteItem(parser(producto.id))">Eliminar</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
