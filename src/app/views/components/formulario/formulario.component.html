@@ -1,0 +1,45 @@
+<div class="formulariocomponent">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="formulario">
+        <div class="grupo-formulario">
+          <div class="campo">
+            <label for="id">ID</label>
+            <input id="id" type="text" formControlName="id" [ngClass]="{ 'error': campoInvalido('id') }" class="input" />
+            <span *ngIf="campoInvalido('id')" class="error-text">{{ getError('id') }}</span>
+          </div>
+
+          <div class="campo">
+            <label for="name">Nombre</label>
+            <input id="name" type="text" formControlName="name" class="input" />
+            <span *ngIf="campoInvalido('name')" class="error-text">{{ getError('name') }}</span>
+          </div>
+
+          <div class="campo">
+            <label for="description">Descripción</label>
+            <input id="description" type="text" formControlName="description" [ngClass]="{ 'error': campoInvalido('description') }" class="input" />
+            <span *ngIf="campoInvalido('description')" class="error-text">{{ getError('description') }}</span>
+          </div>
+
+          <div class="campo">
+            <label for="logo">Logo</label>
+            <input id="logo" type="text" formControlName="logo" [ngClass]="{ 'error': campoInvalido('logo') }" class="input" />
+            <span *ngIf="campoInvalido('logo')" class="error-text">{{ getError('logo') }}</span>
+          </div>
+
+          <div class="campo">
+            <label for="date_release">Fecha Liberación</label>
+            <input id="date_release" (change)="changedate('date_release')" type="date" formControlName="date_release" class="input" />
+            <span *ngIf="campoInvalido('date_release')" class="error-text">{{ getError('date_release') }}</span>
+          </div>
+
+          <div class="campo">
+            <label for="date_revision">Fecha Revisión</label>
+            <input id="date_revision" type="date" formControlName="date_revision" class="input" [disabled]="true"/>
+          </div>
+        </div>
+        <div class="botones">
+          <button type="button" (click)="onReset()" class="btn btn--secondary">Reiniciar</button>
+
+          <button type="submit" class="btn btn--warning" [disabled]="form.invalid">Enviar</button>
+        </div>
+</form>
+</div>
