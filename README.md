@@ -30,3 +30,8 @@ this is a test for aplication to frontend developer with nttdata
 # herramientas adicionales
 
     * proxy en angular para evitar problema de cors
+
+# Puntos que se pudieron mejorar
+
+    * pruebas unitarias y de integracion
+    * lazy loading o carga peresoza 
