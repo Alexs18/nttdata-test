@@ -4,7 +4,7 @@ import { Getitem } from 'src/domain/usercases/getitem/getitem';
 import { Productofinanciero } from "src/domain/models/productofinanciero";
 import { adddate, currentdate } from 'src/external/helpers/helpers-date';
 import { Createitem } from 'src/domain/usercases/createitem/createitem';
-import { erroralert, sucessalert } from 'src/external/helpers/helpers-alerts';
+import { erroralert, questionalert, sucessalert } from 'src/external/helpers/helpers-alerts';
 import { Deleteitem } from 'src/domain/usercases/deleteitem/deleteitem';
 import { Updateitem } from 'src/domain/usercases/updateitem/updateitem';
 
@@ -59,9 +59,14 @@ export class ProductofinancieroComponent implements OnInit {
   }
 
 
-  deleteItem(id:number){
+  async deleteItem(id:number){
 
-    this._usecasedeleteitem.start(545).subscribe({
+    const {isConfirmed} = await questionalert(`esta seguro que desea eliminar el producto
+      ${id}`);
+    if (!isConfirmed) {
+      return
+    }
+    this._usecasedeleteitem.start(id).subscribe({
       next: (resp) => {
         if (resp.message === "Product removed successfully") {
           this.getAllItems();

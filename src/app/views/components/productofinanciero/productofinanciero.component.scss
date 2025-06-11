@@ -49,7 +49,7 @@
   border-collapse: collapse;
   background-color: #fff;
   border-radius: 8px;
-  overflow: hidden;
+  overflow: scroll;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 
   th, td {
@@ -115,10 +115,10 @@
     }
   }
   .dropbtn {
-  background-color: #04AA6D;
+  background-color: none;
   color: white;
-  padding: 16px;
-  font-size: 16px;
+  padding: 8px;
+  font-size: 7px;
   border: none;
 }
 
@@ -134,7 +134,27 @@
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+  list-style: none;
+  padding: 7px;
+  margin: 10px;
 }
+.dropdown-li-edit{
+  padding: 8px;
+  border-radius: 30px;
+}
+.dropdown-li-edit:hover{
+  background-color: blue;
+  padding: 8px;
+}
+.dropdown-li-delete{
+  padding: 8px;
+  border-radius: 30px;
+}
+.dropdown-li-delete:hover{
+  background-color: red;
+  padding: 8px;
+}
+
 
 .dropdown-content a {
   color: black;

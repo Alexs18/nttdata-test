@@ -23,11 +23,15 @@
           <td>{{ producto.description }}</td>
           <td>{{ producto.date_release }}</td>
           <td>{{ producto.date_revision }}</td>
-          <td class="dropdown" (click)="setMenu(i, $event)">
+          <td class="dropdown">
             <button class="dropbtn">⋮</button>
             <ul class="dropdown-content">
-              <li (click)="deleteItem(parser(producto.id))">Editar</li>
-              <li (click)="deleteItem(parser(producto.id))">Eliminar</li>
+              <li class="dropdown-li-edit" (click)="deleteItem(parser(producto.id))">
+                Editar
+              </li>
+              <li class="dropdown-li-delete" (click)="deleteItem(parser(producto.id))">
+                Eliminar
+              </li>
             </ul>
           </td>
         </tr>
