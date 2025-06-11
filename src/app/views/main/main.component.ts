@@ -23,10 +23,5 @@ export class MainComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  goToMain() {
-    this.router.navigate(['/main']);
-  }
-
-
 
 }

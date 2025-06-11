@@ -1,4 +1,4 @@
-import { Inprofinancierorepository } from './inprofinancierorepository';
+import { Inprofinancierorepository } from './inprofinancierorepository.service';
 
 describe('Inprofinancierorepository', () => {
   it('should create an instance', () => {
