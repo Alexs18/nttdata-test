@@ -26,7 +26,8 @@
           <td class="dropdown">
             <button class="dropbtn">⋮</button>
             <ul class="dropdown-content">
-              <li class="dropdown-li-edit" (click)="deleteItem(parser(producto.id))">
+              <li class="dropdown-li-edit"
+              [routerLink]="['/actualizarproducto']" routerLinkActive="router-link-active" >
                 Editar
               </li>
               <li class="dropdown-li-delete" (click)="deleteItem(parser(producto.id))">

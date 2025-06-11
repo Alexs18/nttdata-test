@@ -1,6 +1,7 @@
 <div class="formularioupdate">
     <form [formGroup]="formupdate" (ngSubmit)="onSubmitEdit()" class="formulario">
-        <div class="grupo-formulario">
+      <h1 class="title-formulary">Actualizar Producto</h1>  
+      <div class="grupo-formulario">
           <div class="campo">
             <label for="id">ID</label>
             <input readonly id="id" type="text" formControlName="id" [ngClass]="{ 'error': campoInvalido('id') }" class="input" />
@@ -38,6 +39,9 @@
         </div>
         <div class="botones">
           <button type="submit" class="btn btn--warning" [disabled]="formupdate.invalid">Enviar</button>
+          <button type="submit" class="btn btn--primary"
+          [routerLink]="['/productos']" routerLinkActive="router-link-active" 
+          >Regresar</button>
         </div>
 </form>
 
