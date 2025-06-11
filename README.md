@@ -18,3 +18,15 @@ this is a test for aplication to frontend developer with nttdata
         usercases
     external
         helpers
+
+# Puntos Cumplidos
+
+    * Obtener Todos los items
+    * Crear Nuevo Item
+    * actualizar nuevo item
+    * principios de responsabilidad unica
+    * principios de abierto y cerrado
+
+# herramientas adicionales
+
+    * proxy en angular para evitar problema de cors
