@@ -21,9 +21,9 @@
         <td>{{ producto.description }}</td>
         <td>{{ producto.date_release }}</td>
         <td>{{ producto.date_revision }}</td>
-        <td class="dropdown-container" (click)="setMenu(i, $event)">
-          <button class="dropdown-btn">⋮</button>
-          <ul class="dropdown-menu" *ngIf="mostrarMenu === i">
+        <td class="dropdown" (click)="setMenu(i, $event)">
+          <button class="dropbtn">⋮</button>
+          <ul class="dropdown-content">
             <li (click)="deleteItem(parser(producto.id))">Editar</li>
             <li (click)="deleteItem(parser(producto.id))">Eliminar</li>
           </ul>
