@@ -27,7 +27,7 @@
             <button class="dropbtn">⋮</button>
             <ul class="dropdown-content">
               <li class="dropdown-li-edit"
-              [routerLink]="['/actualizarproducto']" routerLinkActive="router-link-active" >
+              [routerLink]="['/actualizarproducto']" routerLinkActive="router-link-active" (click)="setproductolocal(producto)" >
                 Editar
               </li>
               <li class="dropdown-li-delete" (click)="deleteItem(parser(producto.id))">

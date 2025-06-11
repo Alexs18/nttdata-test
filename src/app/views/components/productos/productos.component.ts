@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Productofinanciero } from 'src/domain/models/productofinanciero';
 import { Createitem } from 'src/domain/usercases/createitem/createitem';
 import { Deleteitem } from 'src/domain/usercases/deleteitem/deleteitem';
@@ -15,15 +16,15 @@ import { adddate, currentdate } from 'src/external/helpers/helpers-date';
 })
 export class ProductosComponent implements OnInit {
 
-   formupdate: FormGroup;
-   fechaActual = currentdate();
-   fechaRevision = adddate(this.fechaActual,'year', 1);
+  showcontent = false;
+  productlocal:any
+  formupdate: FormGroup;
+  fechaActual = currentdate();
+  fechaRevision = adddate(this.fechaActual,'year', 1);
   constructor(
-      private readonly _usecasegetallitem:Getitem,
       private readonly fb: FormBuilder,
-      private readonly _usecasecreateitem:Createitem,
-      private readonly _usecasedeleteitem:Deleteitem,
       private readonly _usecaseupdateitem:Updateitem,
+      private readonly _route:Router,
   ) {
      this.formupdate = this.fb.group({ 
       id: [{value:'',disable:true}],
@@ -39,6 +40,10 @@ export class ProductosComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.setearproductedit(this.getproductlocal());
+    setTimeout(() => {
+      this.showcontent = true;
+    }, 200); 
   }
   getError(campo: string): string {
       const control = this.formupdate.get(campo);
@@ -73,6 +78,9 @@ export class ProductosComponent implements OnInit {
   setearproductedit(producto:Productofinanciero){
     this.formupdate.patchValue(producto);
   }
+  getproductlocal(){
+   return this.productlocal = JSON.parse(localStorage.getItem('producto')?? 'null')
+  }
    onSubmitEdit(){
     this.editItem(this.formupdate.get('id')?.value,this.formupdate.getRawValue())
   }
@@ -81,6 +89,7 @@ export class ProductosComponent implements OnInit {
       next: (resp) => {
         if (resp.message === "Product updated successfully") {
           sucessalert('Producto actualizado exitosamente');
+          this._route.navigateByUrl('/productos');
         } else {
           erroralert('No se pudo acualizar el item');
         }

@@ -82,17 +82,13 @@ export class ProductofinancieroComponent implements OnInit {
     })
   }
 
+  setproductolocal(producto:Productofinanciero){
+    localStorage.setItem('producto', JSON.stringify(producto))
+  }
   parser(number:any){
     return parseInt(number)
   }
 
-  agregar(){
-    
-  }
-  setMenu(index: number, event: MouseEvent) {
-  event.stopPropagation(); // evita que se cierre inmediatamente
-  this.mostrarMenu = this.mostrarMenu === index ? null : index;
-}
 
 @HostListener('document:click')
 cerrarMenu(): void {

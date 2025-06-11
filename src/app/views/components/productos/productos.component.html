@@ -1,4 +1,4 @@
-<div class="formularioupdate">
+<div *ngIf="showcontent" class="formularioupdate">
     <form [formGroup]="formupdate" (ngSubmit)="onSubmitEdit()" class="formulario">
       <h1 class="title-formulary">Actualizar Producto</h1>  
       <div class="grupo-formulario">
